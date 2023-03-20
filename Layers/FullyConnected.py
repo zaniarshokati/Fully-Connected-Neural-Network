@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class FullyConnected:
     def __init__(self, input_size, output_size):
         self.weights = np.random.uniform(0, 1, size=(input_size + 1, output_size))  # changed Weights includes biases as well changed
@@ -34,7 +33,6 @@ class FullyConnected:
 
     def backward(self, error_tensor):
         self.gradient_weights = np.dot(self.input_tensor.T, error_tensor)
-
         if self.optimizer is not None:
             self.weights = self._optimizer.calculate_update(self.weights, self.gradient_weights)
 
